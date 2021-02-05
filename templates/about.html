@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% block content %}
+
+<section class="about">
+  <div class="jumbotron" style="margin-bottom: -2rem !important">
+    <h1 class="display-4 text-center">About us</h1>
+    <p class="lead text-center">
+      This is a simple hero unit, a simple jumbotron-style component for calling
+      extra attention to featured content or information.
+    </p>
+
+    <p class="lead text-center">
+      <a class="btn btn-primary btn-lg rounded-pill" href="#" role="button"
+        >Learn more</a
+      >
+    </p>
+  </div>
+
+  <div class="container-fluid p-5" style="padding: 140px 80px !important">
+    <div class="row">
+      <div class="col-lg-6">
+        <img
+          src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80"
+          class="img-fluid"
+          alt=""
+        />
+      </div>
+      <div class="col-md-12 col-lg-6 p-4">
+        <h2>About us</h2>
+        <p>
+          We are a company that allows our customers to sell their houses on our
+          site. We also allow the user to buy the houses other customers have
+          added to our site. All these information is safe and stored in our
+          database. Django has provided us with a really strong authentication
+          system, that will protect us from any harmful threats.
+        </p>
+        <p>
+          Our focus is to help our customers buy the house they've been
+          searching for. We also assign houses to the user. We have a simple
+          user interface which will help the user. This project was given by our
+          client, they wanted most of the features. House Buyers, have a feature
+          where all the houses are dispalyed, and the customer can only buy when
+          they are logged on.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock%} {% block pagetitle %}
+<title>House Buyers | About</title>
+{% endblock %} {% block title %} {% endblock %} {% block nav_active %}
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'index' %}"
+    >Home <span class="sr-only">(current)</span></a
+  >
+</li>
+<li class="nav-item active">
+  <a class="nav-link" href="{% url 'about' %}">About</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="#">Contact</a>
+</li>
+{% endblock %}

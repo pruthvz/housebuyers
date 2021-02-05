@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block pagetitle %}
+    <title>House Buyers | Sign In</title>
+    {% endblock %}
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <!-- font awsome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+
+    <!-- font type roboto-->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+      * {
+        font-family: "Roboto", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body>
+    {% block title %} {% endblock %} {% block content %}
+
+    <!-- login form start -->
+    <div class="container" style="margin-top:5rem;">
+      <main class="my-form">
+        <div class="cotainer">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header h2">Sign in</div>
+                            <div class="card-body">
+                                <form name="my-form" action="login" method="POST" ">
+                                       {% csrf_token %}
+                                        {% if messages %}
+                                          {% for message in messages %}
+                                            <div class="alert alert-{{message.tags}}">
+                                              {{message}}
+                                            </div>
+                                          {% endfor %}
+                                        {% endif %}
+
+                                     <div class="form-group row">
+                                        <label for="last_name" class="col-md-4 col-form-label text-md-right">Username</label>
+                                        <div class="col-md-6">
+                                            <input type="text"   name="username"class="form-control" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="last_name" class="col-md-4 col-form-label text-md-right">Password</label>
+                                        <div class="col-md-6">
+                                            <input type="password"  name="password" class="form-control" autocomplete="off">
+                                        </div>
+                                    </div>
+
+                                        <div class="col-md-6 offset-md-4">
+                                            <button type="submit" class="btn btn-primary btn-block">
+                                                Login
+                                            </button>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="border-top card-body text-center">Haven't got an account? <a href="{% url 'register' %}">Sign up</a></div>
+                                </form>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    
+    </main>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+      {% endblock %}
+    </div>
+    <!-- login form end -->
+
+    <!-- scripts for bootstrap -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

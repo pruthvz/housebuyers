@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {%block child_block%} {% load crispy_forms_tags %}
+{%block title %} {% endblock %}
+
+<div class="ml-5 mb-2">
+  <div class="row">
+    <h1 class="display-4" style="padding-left: 16px">Insert new house</h1>
+  </div>
+  <p class="badge badge-danger">If any issues found, please do contact me.</p>
+</div>
+
+<div class="p-5 m-5 bg-light" align="center">
+  <form method="POST">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.owner|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-6 mb-0">
+        {{ form.types|as_crispy_field }}
+      </div>
+    </div>
+    {{ form.address|as_crispy_field }}
+    <div class="form-row">
+      <div class="form-group col-md-2 mb-0">
+        {{ form.bedroomNo|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-2 mb-0">
+        {{ form.price|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-4 mb-0">
+        {{ form.sellerName|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-4 mb-0">
+        {{ form.solicitorName|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-6 mb-0"></div>
+    </div>
+    {{ form.sellNo|as_crispy_field }} {{ form.offer|as_crispy_field }}
+    <input
+      type="submit"
+      value="Insert House"
+      class="btn btn-primary btn-block"
+    />
+  </form>
+</div>
+
+{% endblock %} {% block pagetitle %}
+<title>House Buyers | Insert House</title>
+{% endblock %}
