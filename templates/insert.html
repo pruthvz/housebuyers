@@ -35,7 +35,8 @@
       </div>
       <div class="form-group col-md-6 mb-0"></div>
     </div>
-    {{ form.sellNo|as_crispy_field }} {{ form.offer|as_crispy_field }}
+    {{ form.sellNo|as_crispy_field }} {{ form.desc|as_crispy_field }}
+    {{form.offer|as_crispy_field }}
     <input
       type="submit"
       value="Insert House"

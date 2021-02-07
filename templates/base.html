@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=d  evice-width, initial-scale=1.0" />
     {% block pagetitle %}
-    <title>House Buyers | Register</title>
+    <title>House Buyers</title>
     {% endblock %}
     <link
       rel="stylesheet"
@@ -27,42 +27,83 @@
       * {
         font-family: "Roboto", sans-serif;
       }
+
     </style>    
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-            <li class="nav-item">
-                <a class="badge badge-danger" href="#">Afternoon, {{user.username}}</a>
-              </li>
-          </ul>
-        </div>
-      </nav>
-   
-        {% block content %} 
+    {% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">HouseBuyers</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+        <!-- right hand ul -->
+        <ul class="navbar-nav ml-auto">
+          {% if user.is_authenticated %} 
+          <!-- WORKING TIME START -->
+          {% if time < 12 %}
+          <li class="nav-item">
+            <span class="badge text-white p-3 m-2">Morning, {{user.username}}</span>
+          </li>
+          {% elif time > 12 and time < 18 %}
+          <li class="nav-item">
+            <span class="badge text-white p-3 m-2">Afternoon, {{user.username}}</span>
+          </li>
+          {% elif time >= 18%}
+          <li class="nav-item">
+            <span class="badge text-white p-3 m-2">Good Evening, {{user.username}}</span>
+          </li>
+          {% endif %}
+          <!-- WORKING TIME END -->
+          <li class="nav-item">
+            <a class="nav-link badge badge-danger p-3 m-2 text-white rounded-pill" style="width: 125px;" href="{% url 'logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link badge badge-danger p-3 m-2 text-white rounded-pill" style="width: 125px;" href="{% url 'register' %}">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link badge badge-danger p-3 m-2 text-white rounded-pill" style="width: 125px;" href="{% url 'login' %}">Login</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>  
+      {% endblock %}
+        
+      
+        <!-- MAIN CONTENT INSIDE THIS BLOCK -->
+        {% block content %} 
+
     
         {% endblock %}
+        <!-- MAIN CONTENT INSIDE THIS BLOCK END -->
 
-        {% for house in houses %}
-        {{house.owner}}
-    {% endfor %}
+        <!-- HOUSES HERE START -->
+        {% block house %}
+
+
+        {% endblock %}
+        <!-- HOUSES HERE END -->
+
+        <!-- INSERT HOSUE BLOCK -->
+        {%block child_block%} 
+
+        {% endblock %}
+        <!-- INSERT HOSUE BLOCK END -->
+
         <!-- scripts for bootstrap -->
         <script
         src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

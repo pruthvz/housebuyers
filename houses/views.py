@@ -4,11 +4,23 @@ from .models import House
 from datetime import datetime
 from .forms import HouseForm
 # Create your views here.
+import time
+
+current_hour = time.strptime(time.ctime(time.time())).tm_hour
+
+if current_hour < 12:
+    print("Good Morning!")
+elif current_hour == 12:
+    print("Good Noon!")
+elif current_hour > 12 and current_hour < 18:
+    print("Good AfterNoon!")
+elif current_hour >= 18:
+    print("Good Evening!")
 
 
 def index(request):
     houses = House.objects.all()
-    return render(request, "houses.html", {'houses': houses})
+    return render(request, "houses.html", {'houses': houses, 'time': current_hour})
 
 
 def about(request):

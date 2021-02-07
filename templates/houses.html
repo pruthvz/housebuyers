@@ -1,22 +1,27 @@
 {% extends 'base.html' %} {% block content %}
 
 <!-- some content will come here later -->
-<section class="title bg-dark">
-  <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0px !">
+<section class="title">
+  <div
+    class="jumbotron jumbotron-fluid bg-dark text-white"
+    style="margin-bottom: 0px !important"
+  >
     <div class="container">
-      <h1 class="display-4">House Buyers</h1>
+      <h1 class="display-3">House Buyers</h1>
       {% if user.is_authenticated %}
       <h3
-        class="badge badge-light rounded-pill"
+        class="badge badge-dark rounded-pill"
         style="font-size: 20px !important"
       >
-        Welcome back {{user.first_name}}
+        Welcome back {{user.first_name}} {{user.last_name}}
       </h3>
+      <p class="p-2">
+        Our system will help you find the house you are looking for. We have
+        great houses that you can explore.
+      </p>
+
       <p class="lead">
-        <a
-          class="btn btn-primary btn-lg rounded-pill"
-          href="create"
-          role="button"
+        <a class="btn btn-light btn-lg rounded-pill" href="create" role="button"
           >Add House</a
         >
       </p>
@@ -28,12 +33,63 @@
       <br />
     </div>
   </div>
+
   {% endblock %}
 </section>
 
-<br />
+<!-- START OF HOUSES  -->
+{% block house %}
+<section class="bg-light">
+  <div class="alert alert-dismissible alert-secondary">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Alert Message!</strong> This website is still under
+    <a href="#" class="alert-link"> development, come back later</a>.
+  </div>
+  <br />
+  <br />
 
-{% block services%}
+  <div class="container">
+    <div class="row">
+      {% for house in houses %}
+      <div class="card mb-3 ml-4" style="max-width: 540px">
+        <div class="row no-gutters">
+          <div class="col-md-12">
+            <img
+              src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt=""
+              class="img-fluid"
+            />
+          </div>
+
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{house.address}}</h5>
+
+              <span class="badge badge-secondary rounded-pill"
+                ><i class="fas fa-bed"></i> {{house.bedroomNo}}</span
+              >
+              <span class="badge badge-secondary rounded-pill"
+                ><i class="fas fa-dollar-sign"></i> {{house.price}}</span
+              >
+              <span class="badge badge-secondary rounded-pill"
+                ><i class="fas fa-home"></i> {{house.types}}</span
+              >
+              <p class="card-text">{{house.desc}}</p>
+              <p class="card-text">
+                <span class="badge badge-danger rounded-pill p-2"
+                  ><i class="fas fa-tags"></i>Special Offer</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- END OF HOUSES  -->
+{% endblock %} {% block services%}
 <section class="section-services">
   <div class="container">
     <div class="row justify-content-center text-center">
