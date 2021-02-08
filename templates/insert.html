@@ -1,11 +1,16 @@
 {% extends 'base.html' %} {%block child_block%} {% load crispy_forms_tags %}
 {%block title %} {% endblock %}
 
-<div class="ml-5 mb-2">
+<div class="bg-dark text-light text-center" style="padding-bottom: 20px">
   <div class="row">
-    <h1 class="display-4" style="padding-left: 16px">Insert new house</h1>
+    <h1
+      class="display-4 mx-auto"
+      style="padding-left: 16px !important; padding-top: 20px"
+    >
+      Insert new house
+    </h1>
   </div>
-  <p class="badge badge-danger">If any issues found, please do contact me.</p>
+  <p class="badge badge-light">If any issues found, please do contact me.</p>
 </div>
 
 <div class="p-5 m-5 bg-light" align="center">
@@ -40,7 +45,7 @@
     <input
       type="submit"
       value="Insert House"
-      class="btn btn-primary btn-block"
+      class="btn btn-primary btn-block rounded-pill"
     />
   </form>
 </div>

@@ -28,7 +28,8 @@
         font-family: "Roboto", sans-serif;
       }
 
-    </style>    
+    </style>  
+      
   <body>
     {% block navbar %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -51,7 +52,22 @@
         </ul>
         <!-- right hand ul -->
         <ul class="navbar-nav ml-auto">
-          {% if user.is_authenticated %} 
+          {% if user.is_authenticated %}
+          {% if user.is_superuser %}
+          {% if time < 12 %}
+          <li class="nav-item">
+            <span class="badge text-white p-3 m-2">Morning, admin</span>
+          </li>
+          {% elif time > 12 and time < 18 %}
+          <li class="nav-item">
+            <span class="badge text-white p-3 m-2">Afternoon, admin</span>
+          </li>
+          {% elif time >= 18%}
+          <li class="nav-item">
+            <span class="badge text-white p-3 m-2">Good Evening, admin</span>
+          </li>
+          {% endif %}
+          {% else %}
           <!-- WORKING TIME START -->
           {% if time < 12 %}
           <li class="nav-item">
@@ -65,6 +81,7 @@
           <li class="nav-item">
             <span class="badge text-white p-3 m-2">Good Evening, {{user.username}}</span>
           </li>
+          {% endif %}
           {% endif %}
           <!-- WORKING TIME END -->
           <li class="nav-item">
@@ -81,6 +98,7 @@
         </ul>
       </div>
     </nav>  
+    
       {% endblock %}
         
       
@@ -103,6 +121,35 @@
 
         {% endblock %}
         <!-- INSERT HOSUE BLOCK END -->
+
+        <footer class="bg-dark text-light text-center text-lg-start">
+          <div class="container p-4">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Links</h5>
+        
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="/" class="text-secondary">Home</a>
+                  </li>
+                  <li>
+                    <a href="/about" class="text-secondary">About</a>
+                  </li>
+                  <li>
+                    <a href="#" class="text-secondary">Contact</a>
+                  </li>
+                  <li>
+                    <a href="#" class="text-secondary">Our Policy</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2020 Copyright:
+            <a class="text-warning" href="/">HouseBuyers</a>
+          </div>
+        </footer>
 
         <!-- scripts for bootstrap -->
         <script
