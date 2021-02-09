@@ -37,9 +37,9 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-    
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav mr-auto">
+            {% block navlinks %}
           <li class="nav-item active">
             <a class="nav-link" href="/">Home</a>
           </li>
@@ -49,7 +49,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
           </li>
+          {% endblock %}
         </ul>
+
         <!-- right hand ul -->
         <ul class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
@@ -58,7 +60,7 @@
           <li class="nav-item">
             <span class="badge text-white p-3 m-2">Morning, admin</span>
           </li>
-          {% elif time > 12 and time < 18 %}
+          {% elif time >= 12 and time < 18 %}
           <li class="nav-item">
             <span class="badge text-white p-3 m-2">Afternoon, admin</span>
           </li>
