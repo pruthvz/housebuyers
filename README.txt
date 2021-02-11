@@ -18,3 +18,10 @@ THINGS THAT NEED TO BE DONE STILL:
 - Add house page, allow user to add a house
 - Save the house and user that bought the data together
 - 'Quick' completiton calculations
+
+
+
+
+==================================================================
+COMMENT EVERYTHING ;) 
+==================================================================

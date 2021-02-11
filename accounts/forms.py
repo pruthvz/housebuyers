@@ -6,12 +6,16 @@ from .models import UserProfile
 
 # User form will go here
 
+# This class contains all the fields the built in register page provides you. These fields are built within Django
+
 
 class CreateUserForm(UserCreationForm):
     class Meta:
-        model = User
+        model = User  # calling the User built in modal that works with login/register
         fields = ['first_name', 'last_name', 'username',
-                  'email', 'password1', 'password2']
+                  'email', 'password1', 'password2']  # the fields that are inside that modal
+        # What I'm doing here is, styling the fields since you can't really alter python fields in Html.
+        # adding simple stylign and placeholders to these fields.
         widgets = {
             'first_name': forms.TextInput(
                 attrs={
@@ -39,12 +43,15 @@ class CreateUserForm(UserCreationForm):
             )
         }
 
+# This class contains all the feilds that wasn't built within the User function.
+
 
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['address', 'date_birth', 'buyer_number',
-                  'buyer_solicitor_name', 'household_income']
+                  'buyer_solicitor_name', 'household_income']  # extra feilds
+        # styling the fields again, which will be displayed within the register.html
         widgets = {
             'address': forms.TextInput(
                 attrs={

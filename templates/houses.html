@@ -20,12 +20,13 @@
         Our system will help you find the house you are looking for. We have
         great houses that you can explore.
       </p>
-
+      {% if user.is_superuser %}
       <p class="lead">
         <a class="btn btn-light btn-lg rounded-pill" href="create" role="button"
           >Add House</a
         >
       </p>
+      {% endif %}
       {% else %}
       <p class="lead">
         Sign up to our house buyers, to make purchase of the houses available.
@@ -75,6 +76,8 @@
                   ><i class="fas fa-tags"></i> Special Offer</span
                 >
                 {% endif %}
+              </p>
+
               <h5 class="card-title">{{house.address}}</h5>
 
               <span
@@ -109,26 +112,23 @@
               </ul>
               <br />
               {% if user.is_authenticated %}
-              <p class="card-text text-left">
+              <p class="card-text text-right ">
                 <a
                   class="btn btn-danger rounded-pill p-3"
                   style="font-size: 15px"
-                  href="#"
-                  ><i class="fas fa-cart-plus"></i></a>
-              </p>
-              {% endif %}
-
-   
-
-                {% if user.is_superuser %}
-                <p class="card-text text-right">
-                  <a
-                    class="btn btn-danger rounded-pill p-2"
-                    style="font-size: 15px"
-                    href="delete/{{house.id}}"
-                    ><i class="fas fa-trash-alt"></i
-                  ></a>
-                </p>
+                  href="list/house"
+                  ><i class="fas fa-cart-plus"></i
+                ></a>
+        
+              {% endif %} {% if user.is_superuser %}
+  
+                <a
+                  class="btn btn-danger rounded-pill p-3"
+                  style="font-size: 15px;"
+                  href="delete/{{house.id}}"
+                  ><i class="fas fa-trash-alt"></i
+                ></a>
+                    </p>  
                 {% endif %}
               </p>
             </div>

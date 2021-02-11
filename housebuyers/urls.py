@@ -17,9 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from houses import views
 
+# This is the main URL python where, where the url links are created. for example, the 'accounts/' would have something like 'accounts/register'
+# and that can be declared within the accounts folder and inside the accounts url.py
 urlpatterns = [
+    # HOUSES RELATED URL LINKS IS LISTED HERE
     path('', include('houses.urls')),
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),  # ADMIN URL LINK
+    # ACCOUNTS URL LINKS LISTED HERE
     path('accounts/', include('accounts.urls')),
+    # HOUSE LIST URL LINKS LISTED HERE
     path('list/', include('houselist.urls'))
 ]

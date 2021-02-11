@@ -26,6 +26,7 @@ SECRET_KEY = 'lcioabe=3z30xjvfg4%@xc2k=8f(eh2=!h+xs$)iaq*uiwiarn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# OVER HERE I CAN ADD THE DOMIAN NAMES WHERE I WANT THIS SITE TO BE HOSTED AT. ON DEFAULT ITS MY LOCALHOST.
 ALLOWED_HOSTS = []
 
 
@@ -38,15 +39,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',
+    'accounts',  # INSIDE THIS ACCOUNTS FOLDER, IS WHERE ALL THE PYTHON FILES ARE WRITTEN
+    # THIS HOUSES FOLDER CONTAINS ALL THE RELEVANT FILES THAT WILL DISPLAY ALL THE HOUSES DETAILS.
     'houses',
+    # THIS HOUSELIST FOLDER WILL INCLUDE ALL THE FILES WHICH WILL SAVE ALL THE DETAILS OF THE HOUSES THAT ARE SOLD.
     'houselist',
+    # THIS MODULE WAS INSTALLED USING PIP MODULE. THIS ALLOWS ME TO CREATE AND LAYOUT MY REGISTER/LOGIN FORMS NICELY.
     'crispy_forms',
+
 ]
 
+# Bootstrap is a library, that is used to make the user interface more better.
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
+# These files are default files installed by Django
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -59,9 +65,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'housebuyers.urls'
 
+#  This template settings includes all my HTML file
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # THIS IS WHERE I LINKED ALL MY HTML FILES, THAT THE WEB SEES.
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -81,16 +89,18 @@ WSGI_APPLICATION = 'housebuyers.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+#  THIS IS WHERE I LINKED MY DATABASE TO POSTGRES SQL USING DJANGO
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'houses',
         'USER': 'postgres',
         'PASSWORD': 'pruthvi123',
-        'HOST': 'localhost'
+        'HOST': 'localhost'  # running on my local pc
     }
 }
 
+# THE REST ARE SOME DEFAULT SETTINGS GIVEN BY DJANGO WHICH DOESN'T MATTER TOO MUCH.
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
