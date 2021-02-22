@@ -27,6 +27,3 @@ COMMENT EVERYTHING ;)
 ==================================================================
 
 
-LOGINS 
-191373@student.wqe.ac.uk
-travel10
