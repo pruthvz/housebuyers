@@ -27,7 +27,40 @@
       * {
         font-family: "Roboto", sans-serif;
       }
-
+      .text-custom{
+        color: rgb(155, 155, 155) !important;
+      }
+      disclaimer{
+        display: none;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      #loader {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+        width: 120px;
+        height: 120px;
+        margin: -76px 0 0 -76px;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+      }
+      
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
     </style>  
       
   <body>
@@ -38,8 +71,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarColor02">
+        {% block navlinks %}
         <ul class="navbar-nav mr-auto">
-            {% block navlinks %}
           <li class="nav-item active">
             <a class="nav-link" href="/">Home</a>
           </li>
@@ -47,11 +80,10 @@
             <a class="nav-link" href="/about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="/contact">Contact</a>
           </li>
-          {% endblock %}
         </ul>
-
+        {% endblock %}
         <!-- right hand ul -->
         <ul class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
@@ -102,16 +134,15 @@
     </nav>  
     
       {% endblock %}
-        
-      
         <!-- MAIN CONTENT INSIDE THIS BLOCK -->
         {% block content %} 
-
+        
     
         {% endblock %}
         <!-- MAIN CONTENT INSIDE THIS BLOCK END -->
 
         <!-- HOUSES HERE START -->
+        
         {% block house %}
 
 
@@ -132,16 +163,16 @@
         
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <a href="/" class="text-secondary">Home</a>
+                    <a href="/" class="text-custom">Home</a>
                   </li>
                   <li>
-                    <a href="/about" class="text-secondary">About</a>
+                    <a href="/about" class="text-custom">About</a>
                   </li>
                   <li>
-                    <a href="#" class="text-secondary">Contact</a>
+                    <a href="/contact" class="text-custom">Contact</a>
                   </li>
                   <li>
-                    <a href="#" class="text-secondary">Our Policy</a>
+                    <a href="#" class="text-custom">Our Policy</a>
                   </li>
                 </ul>
               </div>
@@ -169,5 +200,6 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"
       ></script>
+      
   </body>
 </html>

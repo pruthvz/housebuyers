@@ -28,10 +28,17 @@ def index(request):
     # the time is the name variable i chose and sent the variable current_hour through to be used in the web page.
     return render(request, "houses.html", {'houses': houses, 'time': current_hour})
 
-
 # This ABOUT function, will open the about.html page. When the function is called through the navbar.
+
+
 def about(request):
     return render(request, 'about.html')
+
+# contact us page renders here
+
+
+def contact(request):
+    return render(request, 'contact.html')
 
 # This insert_view function takes in the request of a form. THIS IS A POST REQUEST, which will send the data that is inserted in the html file.
 
@@ -54,3 +61,9 @@ def delete_view(request, id):
     # a built in function delete deletes the value from the database and from the html file.
     houses.delete()
     return redirect('/')  # redirects to home page again.
+
+
+def displayView(request, id):
+    houses = House.objects.get(id=id)
+    time.sleep(1)
+    return render(request, 'assigned.html', {'houses': houses})

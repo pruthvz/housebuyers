@@ -1,0 +1,92 @@
+{% extends 'base.html' %} {% block navlinks %}
+<ul class="navbar-nav mr-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/about">About</a>
+  </li>
+  <li class="nav-item active">
+    <a class="nav-link" href="/contact">Contact</a>
+  </li>
+</ul>
+{% endblock %} {% block content %}
+
+<section class="about">
+  <div
+    class="jumbotron jumbotron-fluid bg-dark text-light"
+    style="margin-bottom: -2rem !important"
+  >
+    <h1 class="display-4 text-center">Contact us</h1>
+    <p class="lead text-center pb-5">
+      Please send your queries through our email address, we will try out best
+      to get back to you within 24 hours.
+    </p>
+  </div>
+
+  <div
+    class="container-fluid p-5"
+    style="padding-top: 120px !important"
+    id="about"
+  >
+    <div class="row">
+      <div class="col-lg-6">
+        <img
+          src="https://images.unsplash.com/photo-1448630360428-65456885c650?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1047&q=80"
+          class="img-fluid"
+          alt=""
+        />
+      </div>
+      <div class="col-md-12 col-lg-6 p-4">
+        <h3 style="margin-left: 32px">Contact Box</h3>
+        <!-- Start BawkBox Code-->
+        <script data-sil-id="60306f203c0d09001367232d">
+          var loadWidget = function () {
+            var d = document,
+              w = window,
+              l = window.location,
+              p = l.protocol == "file:" ? "http://" : "//";
+            if (!w.WS) w.WS = {};
+            c = w.WS;
+            var m = function (t, o) {
+              var e = d.getElementsByTagName("script");
+              e = e[e.length - 1];
+              var n = d.createElement(t);
+              if (t == "script") {
+                n.async = true;
+              }
+              for (k in o) n[k] = o[k];
+              e.parentNode.insertBefore(n, e);
+            };
+            m("script", {
+              src:
+                p +
+                "bawkbox.com/widget/contact/60306f203c0d09001367232d?page=" +
+                encodeURIComponent(l + ""),
+              type: "text/javascript",
+            });
+            c.load_net = m;
+          };
+          if (window.Squarespace) {
+            document.addEventListener("DOMContentLoaded", loadWidget);
+            setTimeOut(function () {
+              document.addEventListener("DOMContentLoaded", loadWidget);
+            }, 3000);
+          } else {
+            loadWidget();
+          }
+        </script>
+        <div
+          class="sil-widget-contact sil-widget"
+          id="sil-widget-60306f203c0d09001367232d"
+        >
+          <a href="//bawkbox.com/install/contact">Contact Box</a>
+        </div>
+        <!-- End BawkBox Code-->
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock%} {% block pagetitle %}
+<title>House Buyers | About</title>
+{% endblock %} {% block title %} {% endblock %}

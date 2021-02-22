@@ -14,7 +14,6 @@
         style="font-size: 20px !important"
       >
         Welcome back {{user.first_name}} {{user.last_name}}
-        {{user.userprofile.date_birth}}
       </h3>
       <p class="p-2">
         Our system will help you find the house you are looking for. We have
@@ -29,7 +28,12 @@
       {% endif %}
       {% else %}
       <p class="lead">
-        Sign up to our house buyers, to make purchase of the houses available.
+       House buyers will need to sign up/register in order to start purchasing houses. If you have an account please login.
+      </p>
+      <p class="lead">
+        <a class="btn btn-light btn-lg rounded-pill" href="accounts/register" role="button"
+          >Get Started</a
+        >
       </p>
       {% endif %}
       <br />
@@ -116,7 +120,7 @@
                 <a
                   class="btn btn-danger rounded-pill p-3"
                   style="font-size: 15px"
-                  href="list/house"
+                  href="list/{{house.id}}"
                   ><i class="fas fa-cart-plus"></i
                 ></a>
         
@@ -130,6 +134,7 @@
                 ></a>
                     </p>  
                 {% endif %}
+                
               </p>
             </div>
           </div>

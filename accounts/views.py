@@ -1,4 +1,5 @@
 # imports
+import stripe
 from django import forms
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
@@ -6,11 +7,10 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import UserProfileForm, CreateUserForm
 from django.contrib import messages
 
-
 # Create your views here.
 
-
 # login requests here
+
 
 def login(request):
 

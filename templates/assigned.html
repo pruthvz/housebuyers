@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block pagetitle %}
-    <title>House Buyers | Sold List</title>
+    <title>House Buyers | Thank you for purchasing</title>
     {% endblock %}
     <link
       rel="stylesheet"
@@ -32,8 +32,70 @@
   </head>
   <body>
     {% block content %}
-    <h1>House sold list.</h1>
-    {% endblock %}
+
+    <section class="about">
+      <div
+        class="jumbotron jumbotron-fluid bg-dark text-light"
+        style="margin-bottom: -2rem !important"
+      >
+        <h1 class="display-4 text-center">Thank you for purchasing</h1>
+        <p class="lead text-center pb-2">
+          Please send your queries through our email address, we will try out
+          best to get back to you within 24 hours.
+        </p>
+        <p class="lead text-center">
+          <a class="btn btn-light btn-lg rounded-pill" href="/" role="button"
+            >Return Home</a
+          >
+        </p>
+      </div>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>House successfully purchased,</strong> Thank you for your
+        service!
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div
+        class="container-fluid p-5"
+        style="padding-top: 120px !important"
+        id="about"
+      >
+        <div class="row">
+          <h1 class="pl-3">Here are the following details</h1>
+        </div>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">House Address</th>
+              <th scope="col">Price</th>
+              <th scope="col">Owner</th>
+              <th scope="col">Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">{{houses.id}}</th>
+              <td>{{houses.address}}</td>
+              <td>£{{houses.price}}</td>
+              <td>{{houses.owner}}</td>
+              <td>{{user.first_name}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <br />
+      </div>
+    </section>
+
+    {% endblock%}
   </body>
 </html>
 

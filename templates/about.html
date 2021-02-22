@@ -1,4 +1,16 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block navlinks %}
+<ul class="navbar-nav mr-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="/">Home</a>
+  </li>
+  <li class="nav-item active">
+    <a class="nav-link" href="/about">About</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/contact">Contact</a>
+  </li>
+</ul>
+{% endblock %} {% block content %}
 
 <section class="about">
   <div
@@ -53,16 +65,4 @@
 </section>
 {% endblock%} {% block pagetitle %}
 <title>House Buyers | About</title>
-{% endblock %} {% block title %} {% endblock %} {% block nav_active %}
-<li class="nav-item">
-  <a class="nav-link" href="{% url 'index' %}"
-    >Home <span class="sr-only">(current)</span></a
-  >
-</li>
-<li class="nav-item active">
-  <a class="nav-link" href="{% url 'about' %}">About</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="#">Contact</a>
-</li>
-{% endblock %}
+{% endblock %} {% block title %} {% endblock %}
